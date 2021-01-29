@@ -48,7 +48,7 @@ hist(subset(pollution, region == "west")$pm25, col = "green")
 ```
 
 ```{r}
-with(pollution, plot(latitude, pm25, col = region  ))
+with(pollution, plot(latitude, pm25, col = region))
 abline(h = 12, lwd = 2, lty = 2)
 ```
 
@@ -100,7 +100,9 @@ title(main = "Ozone and Wind in NYC")
 
 ```{r}
 airquality <- transform(airquality, Month = factor(Month))
-boxplot(Ozone ~ Month, airquality, xlab = "Month", ylab = "Ozone (ppb)")
+boxplot(Ozone ~ Month, airquality, xlab = "Month", ylab = "Ozone (ppb)", col.axis = "blue", col.lab = "red")
+title("Ozone and Wind in New York City")
+
 ```
 
 
@@ -179,51 +181,23 @@ points(x[g == "Female"], y[g == "Female"], col = "red")
 ```
 
 
+GRAPHICS DEVICES
 
 ```{r}
-
+pdf(file = "myplot.pdf")
+with(faithful, plot(eruptions, waiting))
+title(main = "Old Faithful Geyser data")
+dev.off()
 ```
 
 
 
 ```{r}
-
+with(faithful, plot(eruptions, waiting))
+title(main = "Old Faithful Geyser data")
+dev.copy(png, file = "geyserplot.png")
+dev.off()
 ```
-
-
-
-```{r}
-
-```
-
-
-
-```{r}
-
-```
-
-
-
-```{r}
-
-```
-
-
-
-```{r}
-
-```
-
-
-
-```{r}
-
-```
-
-
-
-
-
 
 
 
