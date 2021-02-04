@@ -1,0 +1,81 @@
+---
+title: "Color in R plots"
+author: "Carlos Sanchez"
+date: "2/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#grDevices package
+```{r}
+library(grDevices)
+```
+
+```{r}
+pal <- colorRamp(c("red", "blue"))
+pal(0)
+pal(1)
+pal(0.5)
+```
+
+
+
+```{r}
+pal(seq(0,1, len = 10))
+
+```
+
+
+```{r}
+pal <- colorRampPalette(c("red", "yellow"))
+pal(2)
+pal(10)
+```
+
+#RColorBrewer package
+Sequential, Diverging (light in middle and darker on extrems) and Qualitative palette(without sequence):
+
+```{r}
+library(RColorBrewer)
+```
+
+
+```{r}
+cols <- brewer.pal(3, "BuGn")
+cols
+
+pal <- colorRampPalette(cols)  #We can merge both packages
+image(volcano, col=pal(20))
+```
+
+
+```{r}
+x <- rnorm(10000)
+y <- rnorm(10000)
+
+smoothScatter(x,y)
+```
+
+
+
+```{r}
+rgb(0.6,0.9,1)
+
+rgb(0.6,0.9,1, alpha = T) #Add transparency
+
+plot(x,y)
+plot(x,y, col = rgb(0,0,0, alpha = 0.2))
+```
+
+
+#colorspace package
+
+```{r}
+
+
+```
+
