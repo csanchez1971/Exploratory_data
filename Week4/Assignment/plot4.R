@@ -35,14 +35,4 @@ ggplot(NEI_coal_year, aes(x = as.factor(year), y = sum, fill = year)) +
 #Download a png file:
 
 dev.copy(png, file = "plot4.png", width = 800, height=480)
-
 dev.off()
-
-
-# 
-#     facet_wrap(Baltimore$type, nrow = 1)
-#   
-#   ggplot(Baltimore, aes(x=year, y=log10(Emissions)))  +
-#     geom_boxplot(aes(col =type))
-# 
-#   qplot(year, log10(Emissions), data = Baltimore, geom = "boxplot", color = type)

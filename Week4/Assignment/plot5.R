@@ -36,7 +36,6 @@ ggplot(data = Baltimore_vehicles, aes(x = as.factor(year), y = sum, fill = year)
 #Download a png file:
 
 dev.copy(png, file = "plot5.png", width = 800, height=480)
-
 dev.off()
 
 
