@@ -22,8 +22,6 @@ SCC <- readRDS("Source_Classification_Code.rds")
 
 Baltimore <- subset(NEI, fips == "24510")
 
-# Baltimore <- transform(Baltimore,  year = factor(year))
-# Baltimore <- transform(Baltimore,  type = factor(type))
 Baltimore_type_emissions <- Baltimore %>% group_by(year, type) %>% summarise(sum=sum(Emissions))
 
 ggplot(Baltimore_type_emissions, aes(year, sum))  +
@@ -36,11 +34,3 @@ dev.copy(png, file = "plot3.png", width = 800, height=480)
 
 dev.off()
 
-
-# 
-#     facet_wrap(Baltimore$type, nrow = 1)
-#   
-#   ggplot(Baltimore, aes(x=year, y=log10(Emissions)))  +
-#     geom_boxplot(aes(col =type))
-# 
-#   qplot(year, log10(Emissions), data = Baltimore, geom = "boxplot", color = type)
